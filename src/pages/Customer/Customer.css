@@ -1,0 +1,119 @@
+/* Container utama untuk customer */
+.customer-container {
+    padding: 30px;
+    background-color: #f7f7f7; /* Latar belakang yang lebih soft */
+  }
+  
+  /* Judul halaman */
+  .customer-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em; /* Ukuran font untuk judul */
+    color: #4a90e2; /* Warna judul yang lebih soft */
+    font-weight: 700; /* Menebalkan font judul */
+  }
+  
+  /* Section untuk filter dan urutkan paket */
+  .sort-section {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Styling untuk kartu paket */
+  .package-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Efek hover pada kartu */
+  .package-card:hover {
+    transform: translateY(-8px); /* Efek hover card */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat saat hover */
+  }
+  
+  /* Label kategori paket di atas card */
+    .package-category-label {
+    font-size: 12px; /* Mengurangi ukuran font label */
+    font-weight: bold;
+    color: white;
+    padding: 4px 10px; /* Mengurangi padding untuk label lebih ramping */
+    border-radius: 50px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 10px; /* Posisi lebih ke atas */
+    left: 10px; /* Posisi lebih ke kiri */
+    z-index: 1;
+  }
+  
+  .package-category-label.quota {
+    background-color: #87cefa; /* Biru untuk Kuota Internet */
+  }
+  
+  .package-category-label.wifi {
+    background-color: #ffb84d; /* Hijau untuk WiFi */
+  }
+  
+  
+  /* Mengatur posisi card agar tidak tertutup label */
+  .package-card {
+    position: relative;
+    padding-top: 35px; /* Menambah ruang untuk label di atas */
+  }
+  
+  /* Judul paket */
+  .package-title {
+    margin: 0;
+    font-weight: bold;
+    color: #1890ff;
+    font-size: 1.9em !important;  /* Besarkan ukuran font judul paket */
+  }
+  
+  /* Harga paket */
+  .package-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #52c41a;
+    margin-top: 5px;
+  }
+  
+  /* Deskripsi paket */
+  .package-description {
+    padding: 10px;
+    color: #666;
+  }
+  
+  /* Tombol beli paket */
+  .buy-button {
+    margin-top: 15px;
+    background-color: #52c41a;
+    border-color: #52c41a;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buy-button:hover {
+    background-color: #389e16 !important;  
+    border-color: #389e16 !important;     
+    color: white !important;                
+  }
+  
+  /* Styling untuk halaman sort */
+  .sort-section {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2em;
+  }
+  
+  /* Kartu untuk menampilkan paket dalam daftar */
+  .ant-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

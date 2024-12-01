@@ -1,0 +1,116 @@
+/* Animasi latar belakang dengan gradien halus */
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+/* Kontainer utama */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4e73df, #1d3557); /* Gradasi biru yang elegan */
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+/* Card untuk form login */
+.login-card {
+    backdrop-filter: blur(10px); /* Mengurangi blur untuk kesan lebih profesional */
+    background: rgba(255, 255, 255, 0.1); /* Warna latar belakang card lebih transparan */
+    padding: 40px 30px;
+    border-radius: 8px; /* Sudut lebih tajam */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow lebih ringan */
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Judul login */
+.login-title {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; /* Teks putih lebih kontras */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Shadow teks lebih halus */
+}
+
+/* Form styling */
+.login-form {
+    width: 100%;
+}
+
+.login-input {
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.15); /* Warna input lebih soft */
+    color: black;
+    font-size: 16px; /* Ukuran font lebih besar */
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #1d3557; /* Warna border fokus lebih kalem */
+    background-color: rgba(255, 255, 255, 0.2); /* Warna background input saat fokus */
+}
+
+/* Tombol login */
+.login-button {
+    background-color: #1d3557; /* Warna biru lebih netral */
+    border-color: #1d3557;
+    color: #fff; /* Warna teks putih agar kontras */
+    border-radius: 6px; /* Sudut lebih halus */
+    padding: 16px; /* Ukuran tombol lebih besar */
+    font-size: 18px; /* Ukuran font lebih besar */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%; /* Membuat tombol selebar form */
+}
+
+.login-button:hover {
+    background-color: #4e73df; /* Warna tombol hover lebih terang */
+    border-color: #4e73df;
+    transform: scale(1.05); /* Efek hover lebih halus */
+}
+
+/* Link tambahan */
+.login-link {
+    color: #c1c1c1; /* Warna teks link lebih soft */
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-link:hover {
+    color: #4e73df; /* Warna link hover lebih kontras */
+    text-decoration: none;
+}
+
+/* Responsive design untuk perangkat kecil */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-title {
+        font-size: 22px;
+    }
+
+    .login-button {
+        padding: 14px; /* Ukuran tombol lebih pas di perangkat kecil */
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,129 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "user@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "email": "admin@example.com",
+      "password": "admin123"
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "name": "Paket 10GB",
+      "price": 50000,
+      "description": "Internet kuota 10GB berlaku 30 hari.",
+      "category": "quota"
+    },
+    {
+      "id": "2",
+      "name": "Paket 20GB",
+      "price": 90000,
+      "description": "Internet kuota 20GB berlaku 30 hari.",
+      "category": "quota"
+    },
+    {
+      "id": "3",
+      "name": "Paket 50GB",
+      "price": 200000,
+      "description": "Internet kuota 50GB berlaku 30 hari.",
+      "category": "quota"
+    },
+    {
+      "id": "4",
+      "name": "Paket Unlimited",
+      "price": 300000,
+      "description": "Internet unlimited berlaku 30 hari.",
+      "category": "quota"
+    },
+    {
+      "id": "5",
+      "name": "Paket 100GB",
+      "price": 350000,
+      "description": "Internet kuota 100GB berlaku 30 hari.",
+      "category": "quota"
+    },
+    {
+      "id": "6",
+      "name": "Paket Malam 50GB",
+      "price": 100000,
+      "description": "Internet kuota malam (00:00 - 06:00) berlaku 30 hari.",
+      "category": "quota"
+    },
+    {
+      "id": "7",
+      "name": "WiFi Basic",
+      "price": 250000,
+      "description": "Paket WiFi dengan kecepatan hingga 10 Mbps berlaku 30 hari.",
+      "category": "wifi"
+    },
+    {
+      "id": "8",
+      "name": "WiFi Premium",
+      "price": 500000,
+      "description": "Paket WiFi dengan kecepatan hingga 50 Mbps berlaku 30 hari.",
+      "category": "wifi"
+    },
+    {
+      "id": "9",
+      "name": "WiFi Ultra",
+      "price": 750000,
+      "description": "Paket WiFi dengan kecepatan hingga 100 Mbps berlaku 30 hari.",
+      "category": "wifi"
+    },
+    {
+      "id": "10",
+      "name": "Paket 200GB",
+      "price": 450000,
+      "description": "Internet kuota 200GB berlaku 30 hari.",
+      "category": "quota"
+    },
+    {
+      "id": "11",
+      "name": "Paket 500GB",
+      "price": 800000,
+      "description": "Internet kuota 500GB berlaku 30 hari.",
+      "category": "quota"
+    },
+    {
+      "id": "12",
+      "name": "WiFi Ultra Plus",
+      "price": 1000000,
+      "description": "Paket WiFi dengan kecepatan hingga 200 Mbps berlaku 30 hari.",
+      "category": "wifi"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "b82d",
+      "package": "WiFi Ultra Plus",
+      "price": 1000000,
+      "customerName": "user",
+      "customerEmail": "user@example.com",
+      "paymentMethod": "creditCard",
+      "paymentDate": "2024-12-01"
+    },
+    {
+      "id": "f3f4",
+      "package": "WiFi Premium",
+      "price": 500000,
+      "customerName": "user",
+      "customerEmail": "user@example.com",
+      "paymentMethod": "eWallet",
+      "paymentDate": "2024-12-01"
+    },
+    {
+      "id": "dd5c",
+      "package": "WiFi Premium",
+      "price": 500000,
+      "customerName": "user",
+      "customerEmail": "user@example.com",
+      "paymentMethod": "eWallet",
+      "paymentDate": "2024-12-01"
+    }
+  ]
+}
