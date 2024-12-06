@@ -9,6 +9,11 @@
       "id": "2",
       "email": "admin@example.com",
       "password": "admin123"
+    },
+    {
+      "id": "0cab",
+      "email": "test@gmail.com",
+      "password": "12345678"
     }
   ],
   "customers": [
@@ -124,6 +129,15 @@
       "customerEmail": "user@example.com",
       "paymentMethod": "eWallet",
       "paymentDate": "2024-12-01"
+    },
+    {
+      "id": "75f6",
+      "package": "Paket 100GB",
+      "price": 350000,
+      "customerName": "Test",
+      "customerEmail": "test@gmail.com",
+      "paymentMethod": "bankTransfer",
+      "paymentDate": "2024-12-06"
     }
   ]
 }

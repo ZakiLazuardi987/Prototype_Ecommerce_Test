@@ -14,6 +14,7 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Customer.css"; // Impor file CSS
+import History from "../History/History";
 
 function Customer() {
   const navigate = useNavigate();
@@ -24,18 +25,20 @@ function Customer() {
 
   // Mengambil data paket internet dari server
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get("http://localhost:3000/customers")
-      .then((response) => {
-        setPackages(response.data);
-        setLoading(false);
-      })
-      .catch(() => {
-        message.error("Gagal memuat paket.");
-        setLoading(false);
-      });
-  }, []);
+    if (activeTab === "quota" || activeTab === "wifi") {
+      setLoading(true);
+      axios
+        .get("http://localhost:3001/customers")
+        .then((response) => {
+          setPackages(response.data);
+          setLoading(false);
+        })
+        .catch(() => {
+          message.error("Gagal memuat paket.");
+          setLoading(false);
+        });
+    }
+  }, [activeTab]);
 
   // Fungsi untuk mendapatkan daftar paket yang telah diurutkan
   const getSortedItems = () => {
@@ -110,66 +113,111 @@ function Customer() {
         onChange={(key) => setActiveTab(key)}
         style={{ marginBottom: "30px" }}
       >
-        <Tabs.TabPane tab="Kuota Internet" key="quota" />
-        <Tabs.TabPane tab="Paket WiFi" key="wifi" />
+        {/* Tab Kuota Internet */}
+        <Tabs.TabPane tab="Kuota Internet" key="quota">
+          <div className="sort-section">
+            <Typography.Text>Urut Berdasarkan: </Typography.Text>
+            <Select
+              onChange={(value) => setSortOrder(value)}
+              defaultValue={"az"}
+              style={{ width: 200 }}
+              options={[
+                { label: "Abjad a-z", value: "az" },
+                { label: "Abjad z-a", value: "za" },
+                { label: "Harga Terendah ke Tertinggi", value: "lowHigh" },
+                { label: "Harga Tertinggi ke Terendah", value: "highLow" },
+              ]}
+            />
+          </div>
+
+          <Spin spinning={loading}>
+            <List
+              grid={{ column: 3, gutter: 24 }}
+              dataSource={getSortedItems()}
+              renderItem={(pkg) => (
+                <List.Item>
+                  <Card hoverable size="small" className="package-card">
+                    {/* Label Keterangan Paket */}
+                    <div className="package-category-label quota">
+                      Kuota Internet
+                    </div>
+
+                    <Typography.Title level={5} className="package-title">
+                      {pkg.name}
+                    </Typography.Title>
+                    <Typography.Text strong className="package-price">
+                      Rp {pkg.price.toLocaleString()}
+                    </Typography.Text>
+
+                    <Typography.Paragraph
+                      ellipsis={{ rows: 2 }}
+                      className="package-description"
+                    >
+                      {pkg.description}
+                    </Typography.Paragraph>
+                    <Button
+                      type="primary"
+                      icon={<ShoppingCartOutlined />}
+                      onClick={() => handleBuyPackage(pkg)}
+                      block
+                      className="buy-button"
+                    >
+                      Beli Paket
+                    </Button>
+                  </Card>
+                </List.Item>
+              )}
+            />
+          </Spin>
+        </Tabs.TabPane>
+
+        {/* Tab Paket WiFi */}
+        <Tabs.TabPane tab="Paket WiFi" key="wifi">
+          <Spin spinning={loading}>
+            <List
+              grid={{ column: 3, gutter: 24 }}
+              dataSource={getSortedItems()}
+              renderItem={(pkg) => (
+                <List.Item>
+                  <Card hoverable size="small" className="package-card">
+                    {/* Label Keterangan Paket */}
+                    <div className="package-category-label wifi">
+                      Paket WiFi
+                    </div>
+
+                    <Typography.Title level={5} className="package-title">
+                      {pkg.name}
+                    </Typography.Title>
+                    <Typography.Text strong className="package-price">
+                      Rp {pkg.price.toLocaleString()}
+                    </Typography.Text>
+
+                    <Typography.Paragraph
+                      ellipsis={{ rows: 2 }}
+                      className="package-description"
+                    >
+                      {pkg.description}
+                    </Typography.Paragraph>
+                    <Button
+                      type="primary"
+                      icon={<ShoppingCartOutlined />}
+                      onClick={() => handleBuyPackage(pkg)}
+                      block
+                      className="buy-button"
+                    >
+                      Beli Paket
+                    </Button>
+                  </Card>
+                </List.Item>
+              )}
+            />
+          </Spin>
+        </Tabs.TabPane>
+
+        <Tabs.TabPane tab="Riwayat Pembelian" key="history">
+          <History />
+        </Tabs.TabPane>
       </Tabs>
-
-      <div className="sort-section">
-        <Typography.Text>Urut Berdasarkan: </Typography.Text>
-        <Select
-          onChange={(value) => setSortOrder(value)}
-          defaultValue={"az"}
-          style={{ width: 200 }}
-          options={[
-            { label: "Abjad a-z", value: "az" },
-            { label: "Abjad z-a", value: "za" },
-            { label: "Harga Terendah ke Tertinggi", value: "lowHigh" },
-            { label: "Harga Tertinggi ke Terendah", value: "highLow" },
-          ]}
-        />
-      </div>
-
-      <Spin spinning={loading}>
-        <List
-          grid={{ column: 3, gutter: 24 }}
-          dataSource={getSortedItems()}
-          renderItem={(pkg) => (
-            <List.Item>
-              <Card hoverable size="small" className="package-card">
-                {/* Label Keterangan Paket */}
-                <div
-                  className={`package-category-label ${activeTab === "quota" ? "quota" : "wifi"}`}
-                >
-                  {activeTab === "quota" ? "Kuota Internet" : "Paket WiFi"}
-                </div>
-
-                <Typography.Title level={5} className="package-title">
-                  {pkg.name}
-                </Typography.Title>
-                <Typography.Text strong className="package-price">
-                  Rp {pkg.price.toLocaleString()}
-                </Typography.Text>
-
-                <Typography.Paragraph
-                  ellipsis={{ rows: 2 }}
-                  className="package-description"
-                >
-                  {pkg.description}
-                </Typography.Paragraph>
-                <Button
-                  type="primary"
-                  icon={<ShoppingCartOutlined />}
-                  onClick={() => handleBuyPackage(pkg)}
-                  block
-                  className="buy-button"
-                >
-                  Beli Paket
-                </Button>
-              </Card>
-            </List.Item>
-          )}
-        />
-      </Spin>
     </div>
   );
 }

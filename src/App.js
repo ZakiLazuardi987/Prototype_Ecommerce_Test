@@ -4,6 +4,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Customer from "./pages/Customer/Customer";
 import Transaction from "./pages/Transaction/Transaction";
+import History from "./pages/History/History";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn") === "true");
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/customer" element={<Customer />} />
         <Route path="/transaction" element={<Transaction />} />
+        <Route path="/history" element={<History />} />
       </Routes>
     </div>
   );

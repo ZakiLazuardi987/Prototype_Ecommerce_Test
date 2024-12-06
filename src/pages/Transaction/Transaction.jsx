@@ -38,7 +38,7 @@ function Transactions() {
     };
 
     axios
-      .post("http://localhost:3000/transactions", newTransaction)
+      .post("http://localhost:3001/transactions", newTransaction)
       .then(() => {
         message.success(`${selectedPackage.name} berhasil dibeli!`);
         setCustomerName("");

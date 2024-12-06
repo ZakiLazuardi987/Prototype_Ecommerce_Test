@@ -16,7 +16,7 @@ function Register() {
     }
 
     try {
-      const response = await axios.get("http://localhost:3000/users");
+      const response = await axios.get("http://localhost:3001/users");
       const users = response.data;
 
       const existingUser = users.find((user) => user.email === email);
